@@ -1,0 +1,10 @@
+{
+  "name": "example-leveldb-user-auth",
+  "version": "1.0.0",
+  "description": "a minimal example of user authentication using leveldb && accountdown",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "license": "ISC"
+}
