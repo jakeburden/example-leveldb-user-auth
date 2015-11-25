@@ -1,23 +1,22 @@
-var http = require('http')
+const http = require('http')
 
-var patterns = require('patterns')()
-var ecstatic = require('ecstatic')
-var st = ecstatic({
-  root: 'public',
-  gzip: true
+const routes = require('patterns')()
+const st = require('st')
+const serve = st({
+  path: 'public'
 })
 
-var routesIndex = require('./routes/index.js')
+const userSignUp = require('./routes/users/signup')
+const userLogin = require('./routes/users/login')
 
-patterns.add('GET /', routesIndex)
+routes.add('POST /signup', userSignUp)
+routes.add('GET /login', userLogin)
 
-http.createServer(function (req, res) {
-  var m = patterns.match(req.method + ' ' + req.url)
+http.createServer((req, res) => {
+  const m = routes.match(req.method + ' ' + req.url)
   if (!m) {
-    st(req, res)
+    serve(req, res)
     return
   }
   m.value(req, res)
-}).listen(9090, function () {
-  console.log('server is listening on http://0.0.0.0:9090')
-})
+}).listen(9090, () => console.log('server is listening on http://0.0.0.0:9090'))
