@@ -4,6 +4,7 @@ const fs = require('fs')
 const pass = require('pwd')
 const body = require('body/any')
 const tr = require('trumpet')
+const hyperstream = require('hyperstream')
 const gzip = require('oppressor')
 
 const st = require('st')
@@ -20,10 +21,10 @@ const db = level('db', {
 const render = require('./lib/render')
 const userAction = require('./lib/userAction')(body, db, pass)
 
-const renderSignUp = render(fs, tr(), 'signup')
+const renderSignUp = render(fs, hyperstream, 'signup')
 const userSignUp = require('./routes/users/signup')
 
-const renderLogin = render(fs, tr(), 'login')
+const renderLogin = render(fs, hyperstream, 'login')
 const userLogin = require('./routes/users/login')
 
 const routes = require('patterns')()

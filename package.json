@@ -4,7 +4,8 @@
   "description": "a minimal example of user authentication using leveldb",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "build:css": "node build/styles"
   },
   "license": "ISC",
   "dependencies": {
@@ -12,12 +13,20 @@
     "browserify": "^11.0.1",
     "bytewise": "^1.1.0",
     "cookie": "^0.2.0",
+    "hyperstream": "^1.2.2",
     "level": "^1.3.0",
+    "normalize.css": "^3.0.3",
     "oppressor": "0.0.1",
     "patterns": "^1.0.2",
     "pwd": "0.0.4",
     "st": "^1.0.0",
     "trumpet": "^1.7.2",
     "uglify-js": "^2.4.24"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.1.1",
+    "cssnano": "^3.3.2",
+    "postcss": "^5.0.12",
+    "postcss-import": "^7.1.3"
   }
 }
