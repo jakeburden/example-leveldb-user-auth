@@ -1,6 +1,10 @@
 const http = require('http')
+const fs = require('fs')
+
 const pass = require('pwd')
 const body = require('body/any')
+const tr = require('trumpet')
+const gzip = require('oppressor')
 
 const st = require('st')
 const serve = st({
@@ -13,12 +17,25 @@ const db = level('db', {
   valueEncoding: 'json'
 })
 
+const render = require('./lib/render')
 const userAction = require('./lib/userAction')(body, db, pass)
+
+const renderSignUp = render(fs, tr(), 'signup')
 const userSignUp = require('./routes/users/signup')
+
+const renderLogin = render(fs, tr(), 'login')
 const userLogin = require('./routes/users/login')
 
 const routes = require('patterns')()
+
+routes.add('GET /', (greq, res) => fs.createReadStream('./static/index.html')
+    .pipe(greq)
+    .pipe(res))
+
+routes.add('GET /signup', renderSignUp)
 routes.add('POST /signup', userAction(userSignUp))
+
+routes.add('GET /login', renderLogin)
 routes.add('POST /login', userAction(userLogin))
 
 http.createServer((req, res) => {
@@ -27,7 +44,7 @@ http.createServer((req, res) => {
     serve(req, res)
     return
   }
-  m.value(req, res)
+  m.value(gzip(req), res)
 }).listen(9090, () => {
   console.log('server is listening on http://0.0.0.0:9090')
 })
