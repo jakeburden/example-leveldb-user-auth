@@ -20,7 +20,6 @@
     "patterns": "^1.0.2",
     "pwd": "0.0.4",
     "st": "^1.0.0",
-    "trumpet": "^1.7.2",
     "uglify-js": "^2.4.24"
   },
   "devDependencies": {

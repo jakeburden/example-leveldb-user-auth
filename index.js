@@ -3,7 +3,6 @@ const fs = require('fs')
 
 const pass = require('pwd')
 const body = require('body/any')
-const tr = require('trumpet')
 const hyperstream = require('hyperstream')
 const gzip = require('oppressor')
 
