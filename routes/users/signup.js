@@ -11,7 +11,6 @@ module.exports = (req, res, db, pass, params) => {
     db.get(`users\x00${params.username}`, (err, _) => {
       if (err) {
         if (err.notFound) {
-
           if (!validUserName) {
             return res.end('Usernames need to have at least 1 character.\n')
           }
@@ -28,4 +27,3 @@ module.exports = (req, res, db, pass, params) => {
     })
   })
 }
-

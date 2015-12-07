@@ -13,4 +13,3 @@ module.exports = (req, res, db, pass, params) => {
     } else res.end('Incorrect username or password\n')
   })
 }
-
