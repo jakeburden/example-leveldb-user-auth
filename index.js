@@ -17,6 +17,8 @@ const db = level('db', {
   valueEncoding: 'json'
 })
 
+const sessions = {}
+
 const render = require('./lib/render')(oppressor, fs, hyperstream)
 const userAction = require('./lib/userAction')(body, db, pass)
 
@@ -24,7 +26,7 @@ const renderSignUp = render('signup')
 const userSignUp = require('./routes/users/signup')
 
 const renderLogin = render('login')
-const userLogin = require('./routes/users/login')
+const userLogin = require('./routes/users/login')(sessions)
 
 const routes = require('patterns')()
 
