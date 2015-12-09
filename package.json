@@ -20,7 +20,10 @@
     "patterns": "^1.0.2",
     "pwd": "0.0.4",
     "st": "^1.0.0",
-    "uglify-js": "^2.4.24"
+    "tachyons-base": "^1.2.1",
+    "tachyons-box-sizing": "^2.1.0",
+    "uglify-js": "^2.4.24",
+    "uncss": "^0.12.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.1",
