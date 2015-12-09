@@ -2,6 +2,7 @@ const http = require('http')
 const fs = require('fs')
 
 const pass = require('pwd')
+const cookie = require('cookie')
 const body = require('body/any')
 const hyperstream = require('hyperstream')
 const oppressor = require('oppressor')
@@ -26,7 +27,7 @@ const renderSignUp = render('signup')
 const userSignUp = require('./routes/users/signup')
 
 const renderLogin = render('login')
-const userLogin = require('./routes/users/login')(sessions)
+const userLogin = require('./routes/users/login')(sessions, cookie)
 
 const routes = require('patterns')()
 
