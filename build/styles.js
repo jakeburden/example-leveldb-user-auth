@@ -13,7 +13,9 @@ const htmls = ['static/index.html',
                'templates/login.html']
 
 postcss([atImport, autoprefixer])
-  .process(css)
+  .process(css, {
+    from: 'src/styles/index.css'
+  })
   .then(result => {
     fs.writeFileSync('public/styles/bundle.css', result.css)
     const opts = {
