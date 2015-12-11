@@ -8,6 +8,15 @@ const uncss = require('uncss')
 
 const css = fs.readFileSync('src/styles/index.css', 'utf8')
 
+const index = fs.readFileSync('static/index.html', 'utf8')
+const signup = fs.readFileSync('templates/signup.html', 'utf8')
+const login = fs.readFileSync('templates/login.html', 'utf8')
+
+const opts = {
+  htmlroot: 'public',
+  stylesheets: ['styles/bundle.css']
+}
+
 postcss([atImport, autoprefixer])
   .process(css, {
     from: 'src/styles/index.css',
@@ -15,7 +24,7 @@ postcss([atImport, autoprefixer])
   })
   .then(result => {
     fs.writeFileSync('public/styles/bundle.css', result.css)
-    uncss(['http://0.0.0.0:9090'], function (err, output) {
+    uncss([index, login, signup], opts, function (err, output) {
       if (err) console.error(err)
       fs.writeFileSync('public/styles/bundle.css', output)
 

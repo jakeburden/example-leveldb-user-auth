@@ -1,3 +1,6 @@
 @import 'normalize.css';
 @import 'tachyons-box-sizing';
 @import 'tachyons-base';
+@import 'tachyons-font-families';
+@import 'tachyons-widths';
+@import 'tachyons-spacing';
