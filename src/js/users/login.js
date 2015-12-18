@@ -7,6 +7,7 @@ module.exports = ui => {
     username: username.value,
     password: password.value
   }
+  console.log('login creds', creds)
   xhr({
     json: creds,
     uri: '/login',

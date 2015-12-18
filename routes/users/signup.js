@@ -7,8 +7,8 @@ module.exports = (req, res, db, pass, params) => {
 
     params.password = undefined
     const user = Object.assign({}, params, {'salt': salt}, {'hash': hash})
-
-    db.get(`users\x00${params.username}`, (err, _) => {
+    console.log('username', user.username)
+    db.get(`users\x00${user.username}`, (err, _) => {
       if (err) {
         if (err.notFound) {
           if (!validUserName) {
@@ -18,12 +18,15 @@ module.exports = (req, res, db, pass, params) => {
             return res.end('Passwords need to have at least 6 characters.\n')
           }
 
-          db.put(`users\x00${params.username}`, user, err => {
+          db.put(`users\x00${user.username}`, user, err => {
             if (err) console.error(err)
-            res.end(`${params.username} has signed up!\n`)
+            db.get(`users\x00${user.username}`, (err, signup) => {
+              if (err) console.error(err)
+              res.end(`${signup.username} has signed up!\n`)
+            })
           })
         } else console.error(err)
-      } else res.end(`${params.username} already exist, please try again.\n`)
+      } else res.end(`${user.username} already exist, please try again.\n`)
     })
   })
 }
