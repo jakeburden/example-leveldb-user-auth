@@ -1,5 +1,23 @@
 module.exports = {
-  nav: document.querySelector('nav'),
-  app: document.getElementById('app'),
-  button: document.querySelector('button')
+  nav () {
+    return document.querySelector('nav')
+  },
+  app () {
+    return document.getElementById('app')
+  },
+  button () {
+    return document.querySelector('button')
+  },
+  username () {
+    return document.getElementById('username')
+  },
+  email () {
+    return document.getElementById('email')
+  },
+  password () {
+    return document.getElementById('password')
+  },
+  confirmPassword () {
+    return document.getElementById('confirm-password')
+  }
 }

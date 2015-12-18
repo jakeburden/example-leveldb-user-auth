@@ -34,7 +34,8 @@
     "tachyons-text-decoration": "^2.1.0",
     "tachyons-widths": "^3.0.3",
     "uglify-js": "^2.4.24",
-    "uncss": "^0.12.1"
+    "uncss": "^0.12.1",
+    "xhr": "^2.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.1.1",
