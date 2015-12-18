@@ -1,4 +1,5 @@
 module.exports = {
   nav: document.querySelector('nav'),
-  app: document.querySelector('#app')
+  app: document.getElementById('app'),
+  button: document.querySelector('button')
 }
