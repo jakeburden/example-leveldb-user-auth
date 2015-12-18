@@ -21,6 +21,8 @@
     "normalize.css": "^3.0.3",
     "oppressor": "0.0.1",
     "patterns": "^1.0.2",
+    "postcss-for": "^2.0.1",
+    "postcss-merge-rules": "^2.0.3",
     "pwd": "0.0.4",
     "st": "^1.0.0",
     "tachyons-base": "^1.2.1",

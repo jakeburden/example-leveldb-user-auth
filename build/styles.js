@@ -2,6 +2,7 @@ const fs = require('fs')
 
 const postcss = require('postcss')
 const atImport = require('postcss-import')
+const forLoop = require('postcss-for')
 const cssnano = require('cssnano')
 const autoprefixer = require('autoprefixer')
 const uncss = require('uncss')
@@ -12,7 +13,7 @@ const htmls = ['static/index.html',
                'templates/signup.html',
                'templates/login.html']
 
-postcss([atImport, autoprefixer])
+postcss([atImport, forLoop, autoprefixer])
   .process(css, {
     from: 'src/styles/index.css'
   })

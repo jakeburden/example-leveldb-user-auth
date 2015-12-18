@@ -1,0 +1,39 @@
+a {
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 1.5em;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: color .5s;
+}
+
+a:hover {
+  color: #aaa;
+  text-decoration: underline;
+}
+
+button {
+  border: 1px solid;
+  background: #fff;
+  width: 100%;
+  padding: 10px;
+  border-radius: 3em;
+  text-transform: uppercase;
+  letter-spacing: .3em;
+}
+
+fieldset {
+  border: none;
+}
+
+input {
+  border: 1px solid;
+}
+
+legend {
+  font-size: 1.5em;
+}
+
+nav::-webkit-scrollbar {
+    display: none;
+}

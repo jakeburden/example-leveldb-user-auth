@@ -12,7 +12,7 @@ module.exports = (sessions, cookie) => (req, res, db, pass, params) => {
         res.end('Invalid cookie please try again.')
       }
     })
-  } else {
+  } else if (params) {
     db.get(`users\x00${params.username}`, (err, user) => {
       if (err) return console.error(err)
 
@@ -29,5 +29,5 @@ module.exports = (sessions, cookie) => (req, res, db, pass, params) => {
         })
       } else res.end('Incorrect username or password\n')
     })
-  }
+  } else return null
 }

@@ -2,6 +2,10 @@
   display: flex;
 }
 
+@for $i from 1 to 16 {
+    .flex-$i { flex: $(i); }
+}
+
 .space-around {
   justify-content: space-around;
 }

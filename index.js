@@ -20,20 +20,17 @@ const db = level('db', {
 
 const sessions = {}
 
-const render = require('./lib/render')(oppressor, fs, hyperstream)
+const userLogin = require('./routes/users/login')(sessions, cookie)
 const userAction = require('./lib/userAction')(body, db, pass)
-
-const renderSignUp = render('signup')
 const userSignUp = require('./routes/users/signup')
 
+const render = require('./lib/render')(oppressor, fs, hyperstream, userLogin, db)
+const renderSignUp = render('signup')
 const renderLogin = render('login')
-const userLogin = require('./routes/users/login')(sessions, cookie)
 
 const routes = require('patterns')()
 
-routes.add('GET /', (req, res) => {
-  fs.createReadStream('./static/index.html').pipe(res)
-})
+routes.add('GET /', (req, res) => render('index')(req, res))
 
 routes.add('GET /signup', renderSignUp)
 routes.add('POST /signup', userAction(userSignUp))
