@@ -9,6 +9,7 @@ module.exports = (sessions, cookie) => (req, res, db, pass, params) => {
     db.get(`users\x00${username}`, (err, user) => {
       if (err) return console.error('no cookies?', err)
       if (user) {
+        res.writeHead(200, {'Content-Type': 'application/json'})
         res.end(JSON.stringify(user))
       } else {
         res.end('Invalid cookie please try again.')
