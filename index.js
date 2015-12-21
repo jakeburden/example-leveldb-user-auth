@@ -46,5 +46,5 @@ http.createServer((req, res) => {
   }
   m.value(req, res)
 }).listen(9090, () => {
-  console.log('server is listening on http://0.0.0.0:9090')
+  console.log('server is listening on http://127.0.0.1:9090')
 })
