@@ -9,18 +9,16 @@ $ npm start
 ```
 
 
-I haven't built a frontend for this yet but you get send POST and GET with cURL to see some authentication in the terminal.
+### building
 
-There are still a lot of test that need to be written and bugs to fix.
+Server needs to be running to build (for uncss).
 
-####sign up
 ```
-> curl -vX POST http://localhost:9090/signup \
-       -H 'Content-Type:application/x-www-form-urlencoded' \
-       -d 'username=cool&password=wow'
+$ npm run build
 ```
 
-####login
-```
-> curl -X POST http://localhost:9090/login -d 'username=cool&password=wow'
-```
+### Basics
+
+This is a work-in-progress demo of user authentication and session management using leveldb.  Contributions welcome!  
+
+At the time of writing this I have functional user authentication and a minimal frontend.  This a single page application.  However, I'm writing the application to work completely server-side as well.

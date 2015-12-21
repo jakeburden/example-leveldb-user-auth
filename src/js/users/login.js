@@ -1,6 +1,7 @@
 const xhr = require('xhr')
+const pushState = require('../lib/pushState')
 
-module.exports = ui => {
+const login = ui => {
   const username = ui.username()
   const password = ui.password()
   const creds = {
@@ -18,6 +19,14 @@ module.exports = ui => {
       console.log('not logged in', body)
     } else {
       console.log('logged in', body)
+      if (body.username) {
+        pushState('/')
+        const user = ui.user()
+        const main = ui.app()
+        main.innerHTML = ''
+        user.innerHTML = `Hello, ${body.username}`
+      } else login(ui)
     }
   })
 }
+module.exports = login

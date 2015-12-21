@@ -19,5 +19,8 @@ module.exports = {
   },
   confirmPassword () {
     return document.getElementById('confirm-password')
+  },
+  user () {
+    return document.getElementById('user')
   }
 }
