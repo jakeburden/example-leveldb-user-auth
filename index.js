@@ -24,7 +24,7 @@ const userLogin = require('./routes/users/login')(sessions, cookie)
 const userAction = require('./lib/userAction')(body, db, pass)
 const userSignUp = require('./routes/users/signup')
 
-const render = require('./lib/render')(oppressor, fs, hyperstream, userLogin, db)
+const render = require('./lib/render')(oppressor, fs, hyperstream, cookie, sessions, db)
 const renderSignUp = render('signup')
 const renderLogin = render('login')
 
