@@ -27,6 +27,7 @@ const userSignUp = require('./routes/users/signup')
 const render = require('./lib/render')(oppressor, fs, hyperstream, cookie, sessions, db)
 const renderSignUp = render('signup')
 const renderLogin = render('login')
+const renderLogout = render('logout')
 
 const routes = require('patterns')()
 
@@ -37,6 +38,8 @@ routes.add('POST /signup', userAction(userSignUp))
 
 routes.add('GET /login', renderLogin)
 routes.add('POST /login', userAction(userLogin))
+
+routes.add('GET /logout', renderLogout)
 
 http.createServer((req, res) => {
   const m = routes.match(req.method + ' ' + req.url)
