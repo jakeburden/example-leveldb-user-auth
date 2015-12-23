@@ -31,7 +31,10 @@ module.exports = (sessions, cookie) => (req, res, db, pass, params) => {
           if (user.hash === hash) {
             const sid = crypto.randomBytes(64).toString('hex')
             sessions[sid] = user.username
-            res.setHeader('set-cookie', 'session=' + sid)
+            res.setHeader('set-cookie', 'session=' + sid + '; Max-Age=300')
+            setTimeout(() => {
+              delete sessions[sid]
+            }, 1000 * 60 * 60 * 24)
             res.end(sid)
           } else res.end('Incorrect username or password\n')
         })
